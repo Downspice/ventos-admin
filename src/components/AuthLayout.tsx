@@ -32,11 +32,15 @@ export function VentosMark({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex size-11 shrink-0 items-center justify-center rounded-[10px] bg-primary text-lg font-bold text-primary-foreground shadow-regular-xs",
+        "flex size-11 shrink-0 items-center justify-center rounded-[12px] bg-primary/10 p-1.5 shadow-regular-xs border border-primary/20",
         className,
       )}
     >
-      V
+      <img
+        src="/icon-square.png"
+        alt="Ventos"
+        className="size-full object-contain filter drop-shadow-2xs"
+      />
     </div>
   );
 }

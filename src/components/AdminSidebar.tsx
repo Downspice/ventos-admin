@@ -89,8 +89,12 @@ export function AdminSidebar({ ...props }: React.ComponentProps<typeof Sidebar>)
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" className="data-[slot=sidebar-menu-button]:p-1.5!">
-              <div className="flex size-8 shrink-0 items-center justify-center rounded-[8px] font-bold text-white text-sm bg-primary shadow-regular-xs">
-                V
+              <div className="flex size-8 shrink-0 items-center justify-center rounded-[8px] bg-primary/10 p-1 border border-primary/20 shadow-regular-xs">
+                <img
+                  src="/icon-square.png"
+                  alt="Ventos"
+                  className="size-full object-contain filter drop-shadow-2xs"
+                />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold">Ventos Admin</span>
