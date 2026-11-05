@@ -1,7 +1,22 @@
 import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, gql } from "@apollo/client";
 import { getAccessToken } from "./auth-storage";
 
-const apiUrl = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:4000";
+export function resolveApiUrl(): string {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl) return envUrl.replace(/\/+$/, "");
+
+  if (
+    typeof window !== "undefined" &&
+    window.location.hostname !== "localhost" &&
+    window.location.hostname !== "127.0.0.1"
+  ) {
+    return "https://ventos-backend.vercel.app";
+  }
+
+  return "http://127.0.0.1:4000";
+}
+
+export const apiUrl = resolveApiUrl();
 
 const httpLink = new HttpLink({ uri: `${apiUrl}/graphql` });
 
